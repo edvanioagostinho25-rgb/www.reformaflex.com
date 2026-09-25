@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reforma Flex | Reforma de Estofados</title>
+
+  <meta
+    name="description"
+    content="Reforma Flex — reforma profissional de sofás, poltronas, cadeiras e outros estofados."
+  >
+
+  <style>
+    :root {
+      --espresso: #2b211d;
+      --espresso-light: #46352d;
+      --champagne: #c6a46c;
+      --champagne-light: #dfcda7;
+      --cream: #f7f3ed;
+      --white: #ffffff;
+      --sand: #e8ded1;
+      --text: #302a26;
+      --muted: #746b65;
+      --border: rgba(43, 33, 29, 0.12);
+      --shadow: 0 18px 50px rgba(43, 33, 29, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 243, 237, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--espresso);
+    }
+
+    .logo span {
+      color: var(--champagne);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--espresso);
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--champagne);
+    }
+
+    .nav-button {
+      background: var(--espresso);
+      color: white;
+      padding: 11px 18px;
+      border-radius: 4px;
+    }
+
+    .nav-button:hover {
+      background: var(--champagne);
+      color: var(--espresso);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(43, 33, 29, 0.88),
+          rgba(43, 33, 29, 0.58),
+          rgba(43, 33, 29, 0.15)
+        ),
+        linear-gradient(
+          135deg,
+          #4b3a31,
+          #b6a18c,
+          #eee4d7
+        );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(255,255,255,0.20),
+          transparent 30%
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 80px 24px;
+      color: white;
+    }
+
+    .eyebrow {
+      color: var(--champagne-light);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 18px;
+      color: #f3eee8;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 25px;
+      background: var(--champagne);
+      color: var(--espresso);
+      font-weight: 800;
+      border-radius: 4px;
+      border: 1px solid var(--champagne);
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: white;
+      border-color: white;
+    }
+
+    .button-dark {
+      background: var(--espresso);
+      border-color: var(--espresso);
+      color: white;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+      padding: 100px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: var(--champagne);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.05;
+      color: var(--espresso);
+      margin-bottom: 18px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-description {
+      max-width: 650px;
+      color: var(--muted);
+      margin-bottom: 45px;
+    }
+
+    /* =========================
+       SERVIÇOS
+    ========================= */
+
+    .services {
+      background: var(--white);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 35px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-number {
+      color: var(--champagne);
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 35px;
+    }
+
+    .service-card h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+      color: var(--espresso);
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* =========================
+       CATÁLOGO
+    ========================= */
+
+    .catalog {
+      background: var(--cream);
+    }
+
+    .category {
+      margin-bottom: 70px;
+    }
+
+    .category-title {
+      font-size: 28px;
+      color: var(--espresso);
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fabric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .fabric-card {
+      background: white;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .fabric-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .fabric-image {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(43, 33, 29, 0.55);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          #ded2c3,
+          #ded2c3 3px,
+          #cfc0ae 3px,
+          #cfc0ae 6px
+        );
+    }
+
+    .fabric-content {
+      padding: 20px;
+    }
+
+    .fabric-content h4 {
+      color: var(--espresso);
+      font-size: 18px;
+      margin-bottom: 7px;
+    }
+
+    .fabric-content p {
+      color: var(--muted);
+      font-size: 13px;
+      min-height: 42px;
+    }
+
+    .price {
+      display: block;
+      margin-top: 14px;
+      color: var(--espresso);
+      font-weight: 800;
+    }
+
+    .details {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--champagne);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    /* =========================
+       ANTES E DEPOIS
+    ========================= */
+
+    .before-after {
+      background: var(--white);
+    }
+
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .before,
+    .after {
+      min-height: 360px;
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background: linear-gradient(
+        135deg,
+        #5b4a40,
+        #c4b3a2
+      );
+    }
+
+    .before::before,
+    .after::before {
+      content: "ADICIONAR FOTO";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      letter-spacing: 2px;
+      opacity: 0.65;
+    }
+
+    .before span,
+    .after span {
+      position: relative;
+      z-index: 2;
+      background: rgba(43, 33, 29, 0.85);
+      padding: 8px 13px;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      background: var(--espresso);
+      color: white;
+      text-align: center;
+    }
+
+    .cta .section-title {
+      color: white;
+      max-width: 750px;
+      margin: 0 auto 20px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #d8d0c8;
+    }
+
+    /* =========================
+       CONTACTOS
+    ========================= */
+
+    .contact {
+      background: var(--cream);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 35px;
+      border: 1px solid var(--border);
+    }
+
+    .contact-item {
+      margin-bottom: 25px;
+    }
+
+    .contact-item small {
+      display: block;
+      color: var(--champagne);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .contact-item strong {
+      color: var(--espresso);
+      font-size: 17px;
+    }
+
+    /* =========================
+       REDES SOCIAIS
+    ========================= */
+
+    .social {
+      background: var(--white);
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .social-link {
+      padding: 13px 22px;
+      border: 1px solid var(--border);
+      color: var(--espresso);
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(--espresso);
+      color: white;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #211915;
+      color: #cfc5bc;
+      padding: 45px 24px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 999;
+      background: #1f8f4c;
+      color: white;
+      padding: 15px 19px;
+      border-radius: 50px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav {
+        display: none;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .fabric-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 620px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .nav {
+        padding: 16px 18px;
+      }
+
+      .hero-content {
+        padding: 60px 18px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .fabric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .before-after-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .before,
+      .after {
+        min-height: 260px;
+      }
+
+      .whatsapp {
+        right: 14px;
+        bottom: 14px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       CABEÇALHO
+  ========================== -->
+
+  <header>
+    <div class="nav">
+
+      <!-- SUBSTITUIR PELO LOGOTIPO QUANDO ENVIARES -->
+      <a href="#inicio" class="logo">
+        REFORMA <span>FLEX</span>
+      </a>
+
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#antes-depois">Antes & Depois</a>
+        <a href="#contactos">Contactos</a>
+        <a href="#contactos" class="nav-button">
+          Pedir orçamento
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero" id="inicio">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Reforma profissional de estofados
+        </div>
+
+        <h1>
+          O seu sofá.
+          <br>
+          Uma nova experiência.
+        </h1>
+
+        <p>
+          Transformamos estofados com materiais selecionados,
+          acabamento profissional e atenção aos detalhes.
+        </p>
+
+        <a href="#contactos" class="button">
+          PEDIR ORÇAMENTO
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVIÇOS
+    ========================== -->
+
+    <section class="services" id="servicos">
+
+      <div class="container">
+
+        <div class="section-label">
+          O que fazemos
+        </div>
+
+        <h2 class="section-title">
+          Transformamos espaços
+          através dos detalhes.
+        </h2>
+
+        <p class="section-description">
+          Soluções de estofamento pensadas para devolver
+          conforto, estética e personalidade aos seus móveis.
+        </p>
+
+
+        <div class="grid-3">
+
+          <div class="service-card">
+            <div class="service-number">01</div>
+
+            <h3>
+              Reforma de Sofás
+            </h3>
+
+            <p>
+              Renovação de sofás com seleção de tecidos,
+              revisão e acabamento profissional.
+            </p>
+          </div>
+
+
+          <div class="service-card">
+            <div class="service-number">02</div>
+
+            <h3>
+              Poltronas & Cadeiras
+            </h3>
+
+            <p>
+              Recuperação e transformação de cadeiras,
+              poltronas e outros estofados.
+            </p>
+          </div>
+
+
+          <div class="service-card">
+            <div class="service-number">03</div>
+
+            <h3>
+              Projetos Especiais
+            </h3>
+
+            <p>
+              Soluções personalizadas para diferentes
+              ambientes e necessidades.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATÁLOGO
+    ========================== -->
+
+    <section class="catalog" id="catalogo">
+
+      <div class="container">
+
+        <div class="section-label">
+          Materiais
+        </div>
+
+        <h2 class="section-title">
+          Catálogo de tecidos
+        </h2>
+
+        <p class="section-description">
+          Escolha entre diferentes texturas, acabamentos
+          e materiais para criar o resultado que procura.
+        </p>
+
+
+        <!-- LINHOS -->
+
+        <div class="category">
+
+          <h3 class="category-title">
+            Linhos
+          </h3>
+
+          <div class="fabric-grid">
+
+            <div class="fabric-card">
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+                <h4>Linho Rústico</h4>
+
+                <p>
+                  Textura natural e aparência elegante.
+                </p>
+
+                <span class="price">
+                  Preço sob consulta
+                </span>
+
+                <a href="#contactos" class="details">
+                  Ver detalhes →
+                </a>
+              </div>
+            </div>
+
+
+            <div class="fabric-card">
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+                <h4>Linho Bordado</h4>
+
+                <p>
+                  Acabamento decorativo e sofisticado.
+                </p>
+
+                <span class="price">
+                  Preço sob consulta
+                </span>
+
+                <a href="#contactos" class="details">
+                  Ver detalhes →
+                </a>
+              </div>
+            </div>
+
+
+            <div class="fabric-card">
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+                <h4>Linho Sintético</h4>
+
+                <p>
+                  Aparência de linho para projetos de decoração.
+                </p>
+
+                <span class="price">
+                  Preço sob consulta
+                </span>
+
+                <a href="#contactos" class="details">
+                  Ver detalhes →
+                </a>
+              </div>
+            </div>
+
+
+            <div class="fabric-card">
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+                <h4>Linho Tecelado</h4>
+
+                <p>
+                  Material disponível no catálogo.
+                </p>
+
+                <span class="price">
+                  Preço sob consulta
+                </span>
+
+                <a href="#contactos" class="details">
+                  Ver detalhes →
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- JACQUARD -->
+
+        <div class="category">
+
+          <h3 class="category-title">
+            Jacquard
+          </h3>
+
+          <div class="fabric-grid">
+
+            <div class="fabric-card">
+
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+
+                <h4>Jacquard</h4>
+
+                <p>
+                  Padrões e texturas integrados na própria trama.
+                </p>
+
+                <span class="price">
+                  Preço sob consulta
+                </span>
+
+                <a href="#contactos" class="details">
+                  Ver detalhes →
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- VELUDOS -->
+
+        <div class="category">
+
+          <h3 class="category-title">
+            Veludos
+          </h3>
+
+          <div class="fabric-grid">
+
+            <div class="fabric-card">
+
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+
+                <h4>Veludo Camurça</h4>
+
+                <p>
+                  Toque macio e aparência sofisticada.
+                </p>
+
+                <span class="price">
+                  Preço sob consulta
+                </span>
+
+                <a href="#contactos" class="details">
+                  Ver detalhes →
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="fabric-card">
+
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+
+                <h4>Veludo</h4>
+
+                <p>
+                  Acabamento elegante para diferentes ambientes.
+                </p>
+
+                <span class="price">
+                  Preço sob consulta
+                </span>
+
+                <a href="#contactos" class="details">
+                  Ver detalhes →
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- BOUCLÉ -->
+
+        <div class="category">
+
+          <h3 class="category-title">
+            Bouclé
+          </h3>
+
+          <div class="fabric-grid">
+
+            <div class="fabric-card">
+
+              <div class="fabric-image">
+                Amostra
+              </div>
+
+              <div class="fabric-content">
+
+                <h4>Bouclé Robusto</h4>
+
+  
